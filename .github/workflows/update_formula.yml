@@ -1,0 +1,21 @@
+name: Update Homebrew Formula
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - run: ./bin/make_formula.sh
+      - run: |
+          git config --global user.name 'Michael Kreil'
+          git config --global user.email 'github@michael-kreil.de'
+          git add Formula
+          git commit -m "update formula automatically"
+          git push
