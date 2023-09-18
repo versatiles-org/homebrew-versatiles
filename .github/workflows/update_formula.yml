@@ -20,7 +20,7 @@ jobs:
         run: |
           git config --global user.name 'Michael Kreil'
           git config --global user.email 'github@michael-kreil.de'
-          if [ $(git status --porcelain) ]; then
+          if [ -n "$(git status --porcelain)" ]; then
             git add Formula
             git commit -m "update formula automatically"
             git push
