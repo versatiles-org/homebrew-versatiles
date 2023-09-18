@@ -1,6 +1,7 @@
 name: Update Homebrew Formula
 
 on:
+  repository_dispatch:
   workflow_dispatch:
 
 permissions:
