@@ -14,8 +14,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - run: ./bin/make_formula.sh
-      - run: |
+      - name: make formula
+        run: ./bin/make_formula.sh
+      - name: commit and push
+        run: |
           git config --global user.name 'Michael Kreil'
           git config --global user.email 'github@michael-kreil.de'
           if [ $(git status --porcelain) ]; then
@@ -25,3 +27,4 @@ jobs:
           else
             echo "no changes"
           fi
+        shell: bash
