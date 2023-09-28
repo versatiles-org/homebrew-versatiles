@@ -8,6 +8,13 @@ url_int="https://github.com/versatiles-org/versatiles-rs/releases/download/${ver
 sha_arm=$(curl -Ls "$url_arm.sha256")
 sha_int=$(curl -Ls "$url_int.sha256")
 
+if [[ ${#sha_arm} != 64 ]] | [[ ${#sha_int} != 64 ]]; then
+	echo "SHA has wrong size:"
+	echo "   SHA Arm: $sha_arm"
+	echo "   SHA Int: $sha_int"
+	exit 1
+fi
+
 cat <<_EOT_ > versatiles.rb
 class Versatiles < Formula
 	desc "A toolbox for converting, checking and serving map tiles in various formats."
