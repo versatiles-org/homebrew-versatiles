@@ -6,12 +6,12 @@ class Versatiles < Formula
 
 	on_arm do
 		url "https://github.com/versatiles-org/versatiles-rs/releases/download/v0.6.8/versatiles-macos-aarch64.tar.gz"
-		sha256 "d65284e6999b6bb7e132c4aacfe19cbc8628ce7ddca792afa9f1ef096b522536"
+		sha256 "196966cc3c8e8ca7f66e41a1eda15ce11df5e3034e5f65c11908f457e051bd59"
 	end
 
 	on_intel do
 		url "https://github.com/versatiles-org/versatiles-rs/releases/download/v0.6.8/versatiles-macos-x86_64.tar.gz"
-		sha256 "5d138b8bf14455aaacc430cb6f847aefa2ccf05b7bdd683e3b58a2102c7b206f"
+		sha256 "bd565a718ac8f0c661144f8b97fd61b760c68004d6f115d70563bc43fefaa2ae"
 	end
 
 	def install
