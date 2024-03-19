@@ -4,6 +4,7 @@
 
 ## Install
 ```bash
+brew tap versatiles-org/versatiles
 brew install versatiles
 ```
 
