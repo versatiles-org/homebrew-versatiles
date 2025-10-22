@@ -5,10 +5,12 @@ cd "$(dirname "$0")/../Formula"
 version=$(curl -s 'https://api.github.com/repos/versatiles-org/versatiles-rs/tags' | jq -r 'first(.[] | .name | select(startswith("v")))')
 url_arm="https://github.com/versatiles-org/versatiles-rs/releases/download/${version}/versatiles-macos-aarch64.tar.gz"
 url_int="https://github.com/versatiles-org/versatiles-rs/releases/download/${version}/versatiles-macos-x86_64.tar.gz"
-sha_arm=$(curl -Ls "$url_arm.sha256" | cut -d " " -f 1)
-sha_int=$(curl -Ls "$url_int.sha256" | cut -d " " -f 1)
 
-if [[ ${#sha_arm} != 64 ]] | [[ ${#sha_int} != 64 ]]; then
+# Calculate sha256 of a file at a URL using shasum
+sha_arm=$(curl -Lfs "$url_arm" | shasum -a 256 | awk '{print $1}')
+sha_int=$(curl -Lfs "$url_int" | shasum -a 256 | awk '{print $1}')
+
+if [[ ${#sha_arm} -ne 64 || ${#sha_int} -ne 64 ]]; then
 	echo "SHA has wrong size:"
 	echo "   SHA Arm: $sha_arm"
 	echo "   SHA Int: $sha_int"
