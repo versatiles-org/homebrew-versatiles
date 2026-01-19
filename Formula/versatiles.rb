@@ -1,17 +1,17 @@
 class Versatiles < Formula
 	desc "A toolbox for converting, checking and serving map tiles in various formats."
 	homepage "https://github.com/versatiles-org/versatiles-rs"
-	version "3.2.0"
+	version "3.3.0"
 	license "MIT"
 
 	on_arm do
-		url "https://github.com/versatiles-org/versatiles-rs/releases/download/v3.2.0/versatiles-macos-aarch64.tar.gz"
-		sha256 "ec2909220d2748f2f8283f6b5cf3b228fbc714839336c4ab2c1e2d0fc757b0b0"
+		url "https://github.com/versatiles-org/versatiles-rs/releases/download/v3.3.0/versatiles-macos-aarch64.tar.gz"
+		sha256 "03d016e6e984ad9c4be72946013bb519d9ea9d4f132733e53c83c76b25e14581"
 	end
 
 	on_intel do
-		url "https://github.com/versatiles-org/versatiles-rs/releases/download/v3.2.0/versatiles-macos-x86_64.tar.gz"
-		sha256 "57057215904b18eb6389015d9a58265c5833fb8f836ce3de193db396a6a8a12e"
+		url "https://github.com/versatiles-org/versatiles-rs/releases/download/v3.3.0/versatiles-macos-x86_64.tar.gz"
+		sha256 "951f2ae9de81e07f41e2d4351e8a6ca4cf60241a60eab7862d73485969b9d8b2"
 	end
 
 	def install
