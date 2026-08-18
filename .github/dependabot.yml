@@ -7,3 +7,6 @@ updates:
     groups:
       action:
         patterns: ['*']
+      security:
+        applies-to: security-updates
+        patterns: ['*']
