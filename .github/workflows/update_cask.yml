@@ -1,0 +1,34 @@
+name: Update Homebrew Cask
+
+# The sibling of update_formula.yml, kept separate because the two follow different releases: the
+# formula tracks versatiles-rs, the cask tracks versatiles-studio. One workflow watching both would
+# rewrite a file whose release had not moved.
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  make_cask:
+    name: Make Cask
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+      - name: make cask
+        run: ./bin/make_cask.sh
+      - name: commit and push
+        shell: bash
+        run: |
+          git config --global user.name 'Michael Kreil'
+          git config --global user.email 'github@michael-kreil.de'
+          if [ -n "$(git status --porcelain)" ]; then
+            git add Casks
+            git commit -m "update cask automatically"
+            git push
+          else
+            echo "no changes"
+          fi
