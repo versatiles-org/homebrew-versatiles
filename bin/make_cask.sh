@@ -62,14 +62,12 @@ cask "versatiles-studio" do
   on_arm do
     sha256 "${sha_arm}"
 
-    url "${base}/${name_arm}",
-        verified: "github.com/${repo}/"
+    url "${base}/${name_arm}"
   end
   on_intel do
     sha256 "${sha_int}"
 
-    url "${base}/${name_int}",
-        verified: "github.com/${repo}/"
+    url "${base}/${name_int}"
   end
 
   name "VersaTiles Studio"
