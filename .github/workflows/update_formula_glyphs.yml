@@ -1,0 +1,33 @@
+name: Update Homebrew Formula versatiles-glyphs
+
+# Separate from update_formula.yml for the same reason update_cask.yml is: each workflow follows one
+# release. This one is triggered by versatiles-glyphs-rs when it publishes.
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  make_formula:
+    name: Make Formula
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+      - name: make formula
+        run: ./bin/make_formula_glyphs.sh
+      - name: commit and push
+        shell: bash
+        run: |
+          git config --global user.name 'Michael Kreil'
+          git config --global user.email 'github@michael-kreil.de'
+          if [ -n "$(git status --porcelain)" ]; then
+            git add Formula
+            git commit -m "update formula versatiles-glyphs automatically"
+            git push
+          else
+            echo "no changes"
+          fi
