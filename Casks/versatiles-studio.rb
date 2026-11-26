@@ -1,13 +1,13 @@
 cask "versatiles-studio" do
-  version "0.8.0"
+  version "0.9.0"
 
   on_arm do
-    sha256 "47f2e56dbc72a311b4a2c6bf4fc49e5408e947916cf9075ac44b07976db671d9"
+    sha256 "1ade7b23b23eb64e6feeea145ab3e2b1251e338af8c63299230de8dbb6392e8e"
 
     url "https://github.com/versatiles-org/versatiles-studio/releases/download/v#{version}/VersaTiles-Studio_#{version}_aarch64.dmg"
   end
   on_intel do
-    sha256 "3531e76448d99e4371a10d0da7fe37fe7b1668c5d58e1e5cb228f859f2dade4e"
+    sha256 "be6b1c322772e82c1da0782314a064438a78294a0feb5ffbc558f206b80f9fd6"
 
     url "https://github.com/versatiles-org/versatiles-studio/releases/download/v#{version}/VersaTiles-Studio_#{version}_x64.dmg"
   end
